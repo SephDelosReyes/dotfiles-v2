@@ -4,8 +4,8 @@ vim.g.netrw_banner = 0
 --  For more options, you can see `:help option-list`
 vim.opt.number = true
 vim.opt.relativenumber = true
--- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
+-- Enable mouse mode, can be useful for resizing splits for example!
 -- Don't show the mode, since it's already in status line
 vim.opt.showmode = false
 -- Sync clipboard between OS and Neovim.
@@ -69,3 +69,6 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move down line' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move up line' })
