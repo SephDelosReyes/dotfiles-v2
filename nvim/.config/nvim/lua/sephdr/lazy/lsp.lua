@@ -125,5 +125,11 @@ return {
 
     -- clangd setup
     lspconfig.clangd.setup {}
+
+    -- zls setup
+    lspconfig.zls.setup {}
+
+    --ts_ls, formerly tsserver
+    lspconfig.ts_ls.setup {}
   end,
 }

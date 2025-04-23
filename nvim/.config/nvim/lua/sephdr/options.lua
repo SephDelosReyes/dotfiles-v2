@@ -82,3 +82,5 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move down line' })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move up line' })
+
+vim.diagnostic.config { virtual_text = true }
