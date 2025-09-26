@@ -78,58 +78,12 @@ return {
       end,
     })
 
-    local lspconfig = require 'lspconfig'
-    -- LUA_LS setup
-    -- pre-requisite: build from source lua language server + add to $PATH
-    lspconfig.lua_ls.setup {
-      on_attach = on_attach,
-      settings = {
-        Lua = {
-          runtime = {
-            version = 'LuaJIT',
-          },
-          diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = { 'vim' },
-          },
-          workspace = {
-            -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file('', true),
-            checkThirdParty = false,
-          },
-          -- Do not send telemetry data containing a randomized but unique identifier
-          telemetry = {
-            enable = false,
-          },
-        },
-      },
+    vim.lsp.enable {
+      'lua_ls',
+      'gopls',
+      'gleam',
+      'clangd',
+      'ts_ls',
     }
-
-    -- Golang setup
-    lspconfig.gopls.setup {
-      cmd = { 'gopls' },
-      filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
-      settings = {
-        gopls = {
-          usePlaceholders = true,
-          analyses = {
-            unusedvariable = true,
-          },
-        },
-      },
-    }
-
-    -- Gleam setup
-    -- pre-requisite: build from source Gleam
-    lspconfig.gleam.setup {}
-
-    -- clangd setup
-    lspconfig.clangd.setup {}
-
-    -- zls setup
-    lspconfig.zls.setup {}
-
-    --ts_ls, formerly tsserver
-    lspconfig.ts_ls.setup {}
   end,
 }
